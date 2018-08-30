@@ -1,0 +1,185 @@
+{namespace annotorious.templates}
+
+/**
+ * A dummy element to be used for annotation popups later on.
+ */
+{template .popup}
+    <div class="annotorious-popup top-left" style="position:absolute;z-index:1">
+        <div class="annotorious-popup-buttons">
+            <a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit"
+               href="javascript:void(0);">编辑</a>
+            <a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete"
+               href="javascript:void(0);">删除</a>
+        </div>
+
+        <div class="annotorious-popup-box">
+            <div class="annotorious-popup-info">
+                <div class="annotorious-popup-label">
+                    <p class="annotorious-popup-label_color">
+                            <span class="label_color_active"></span>
+                    </p>
+                    <span class="annotorious-popup-text2"></span>
+                </div>
+                <p class="label_user">
+                    <span>标注人：</span>
+                    <span class="annotorious-popup-text3"></span>
+                </p>
+            </div>
+
+            <div class="annotorious-popup-textara">
+                <span class="annotorious-popup-text"></span>
+            </div>
+        </div>
+    </div>
+{/template}
+
+
+/**
+ * A basic annotation edit text form.
+ */
+{template .editform}
+    <div class="annotorious-editor" style="position:absolute;z-index:1">
+        <form class="label_form">
+            <div class="label_title">
+                <p>标注</p>
+                <p class="label_close"><span></span></p>
+            </div>
+
+            <div class="label_box">
+                <ul class="label_items">
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #B71D1D"></span>
+                        </p>
+                        <span class="label_text">
+                    SCC
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #D32E30"></span>
+                        </p>
+                        <span class="label_text">
+                    HSIL
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #F54236"></span>
+                        </p>
+                        <span class="label_text">
+                    ASCH
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #E67373"></span>
+                        </p>
+                        <span class="label_text">
+                    LSIL
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #F54236"></span>
+                        </p>
+                        <span class="label_text">
+                    ASCUS
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #F57C00"></span>
+                        </p>
+                        <span class="label_text">
+                    AGC1
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #E65100"></span>
+                        </p>
+                        <span class="label_text">
+                    AGC2-3
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #D1C4E9"></span>
+                        </p>
+                        <span class="label_text">
+                    FUNGI
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #9575CD"></span>
+                        </p>
+                        <span class="label_text">
+                    TRI
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #673AB7"></span>
+                        </p>
+                        <span class="label_text">
+                    CC
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #512DA8"></span>
+                        </p>
+                        <span class="label_text">
+                    ACTINO
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background: #311B92"></span>
+                        </p>
+                        <span class="label_text">
+                    VIRUS
+                </span>
+                    </li>
+
+                    <li class="label_item">
+                        <p class="label_inner">
+                            <span class="label_color" style="background:#B2EBF2"></span>
+                        </p>
+                        <span class="label_text">
+                    NORMAL
+                </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="annotorious-editor-text-box">
+                <p class="text_note">备注</p>
+                <textarea class="annotorious-editor-text" maxlength="50" placeholder="添加备注" tabindex="1"></textarea>
+            </div>
+
+            <div class="annotorious-editor-button-container">
+                <div class="annotorious-editor-button-box">
+                    <a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);"
+                       tabindex="3">取消</a>
+                    <a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);"
+                       tabindex="2">保存</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+{/template}
