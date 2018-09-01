@@ -18,10 +18,12 @@ annotorious.events.EventBroker = function() {
  * @param {Function} handler the handler function to add
  */
 annotorious.events.EventBroker.prototype.addHandler = function(type, handler) {
-  if (!this._handlers[type]) 
+  // console.log(this._handlers[type], 'this._handlers[type]')
+  if (!this._handlers[type])
     this._handlers[type] = [];
 
-  this._handlers[type].push(handler);  
+  this._handlers[type] = []; //清空
+  this._handlers[type].push(handler);
 }
 
 /**
@@ -42,22 +44,28 @@ annotorious.events.EventBroker.prototype.removeHandler = function(type, handler)
  * annotation removal). If there is no return value (or the return value is
  * 'true'), no action will be taken by Annotorious. 
  * @param {annotorious.events.EventType} type the event type
+  * @param {Object=} opt_extra the event object
  * @param {Object=} opt_event the event object
  * @return {boolean} the 'cancel event' flag
  */
 annotorious.events.EventBroker.prototype.fireEvent = function(type, opt_event, opt_extra) {
+  // console.log(type, opt_event, opt_extra)
+  // this._handlers = [];
   var cancelEvent = false;
+
   var handlers = this._handlers[type];
+  // console.log(handlers,'handlers')
   if (handlers) {
     goog.array.forEach(handlers, function(handler, idx, array) {
+      // console.log(handler,'handler')
       var retVal = handler(opt_event, opt_extra);
       if (goog.isDef(retVal) && !retVal)
         cancelEvent = true;
     });
-  }    
-
+  }
+  // console.log(cancelEvent, 'cancelEvent')
   return cancelEvent;
-}
+};
 
 /**
  * Annotation lifecycle events.

@@ -3,8 +3,8 @@
     <title>Annotorious OpenSeadragon Test Page</title>
     <script src="openseadragon/openseadragon.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../css/theme-dark/annotorious-dark.css" />
-    <!--<script type="text/javascript" src="http://localhost:9810/compile?id=annotorious"></script>-->
-    <script type="text/javascript" src="./openseadragon/annotorious.min.js"></script>
+    <script type="text/javascript" src="http://localhost:9810/compile?id=annotorious"></script>
+    <!--<script type="text/javascript" src="./openseadragon/annotorious.min.js"></script>-->
     <script type="text/javascript">
       window.onload = function() {
         let viewer = OpenSeadragon({
@@ -30,6 +30,15 @@
         });
         
         anno.makeAnnotatable(viewer);
+
+        anno.addHandler('onAnnotationCreated', function(annotation) {
+            console.log(annotation, 'onAnnotationCreated');
+          console.log(JSON.parse(localStorage.getItem("localAnno")))
+        })
+        anno.addHandler('onAnnotationUpdated', function(annotation) {
+          console.log(annotation, 'onAnnotationUpdated');
+          console.log(JSON.parse(localStorage.getItem("localAnno")))
+        })
       }
     </script>
     <style>

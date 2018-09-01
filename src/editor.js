@@ -96,9 +96,10 @@ annotorious.Editor = function (annotator) {
     goog.events.listen(this._btnSave, goog.events.EventType.CLICK, function (event) { // 保存
         event.preventDefault();
         var annotation = self.getAnnotation();
-
+        // console.log(self._original_annotation, 'self._original_annotation');
+        // console.log(annotator.getItem(), 'annotator.getItem()');
+       
         if(!annotation.label) {
-            // console.log(annotation, '保存失败');
             return
         }
         annotator.addAnnotation(annotation);
@@ -109,6 +110,7 @@ annotorious.Editor = function (annotator) {
         else
             annotator.fireEvent(annotorious.events.EventType.ANNOTATION_CREATED, annotation, annotator.getItem());
         self.close();
+        //  console.log(annotation, 'annotation');
     });
 
     goog.style.showElement(this.element, false);
@@ -199,11 +201,12 @@ annotorious.Editor.prototype.getAnnotation = function () {
 
     var color = this._labelColor;
 
-    var name = localStorage.getItem('tusSupport')
-
-    // console.log(sanitized, 'editor.js')
-    // console.log(label, 'editor.js')
-    // console.log(name, 'editor.js')
+    var name
+    if (!JSON.parse(localStorage.getItem('userData'))) {
+        name = '无'
+    } else {
+        name = JSON.parse(localStorage.getItem('userData')).name;
+    }
 
     if (this._current_annotation) {
         this._current_annotation.text = sanitized;
